@@ -1,0 +1,96 @@
+/* General Styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+h2, h3 {
+    text-align: center;
+    color: #333;
+}
+
+/* Form Container Styling */
+#registrationForm, #loginForm, #contactManagement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+form {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    color: #333;
+}
+
+/* Input Fields Styling */
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Links Styling */
+a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+/* Contact Management Section Styling */
+#contactManagement button {
+    padding: 10px 20px;
+    margin-bottom: 15px;
+}
+
+#addContactForm, #contactList {
+    display: none;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    color: #333;
+    margin-top: 20px;
+}
+
+#contactsUl {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+/* Hidden Forms */
+#loginForm, #contactManagement {
+    display: none;
+}
