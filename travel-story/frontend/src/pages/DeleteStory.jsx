@@ -30,7 +30,7 @@ const DeleteStory = () => {
         <h3 className='text-2xl'>You Sure bruh ?</h3>
 
         <button
-          className='p-4 bg-gray-500 text-white m-8 w-full'
+          className='p-4 bg-red-500 text-white m-8 w-full'
           onClick={handleDeleteBook}
         >
           Yes, Delete it

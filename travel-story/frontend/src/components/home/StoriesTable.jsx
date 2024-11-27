@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import { AiOutlineEdit } from "react-icons/ai";
-import { BsInfoCircle } from "react-icons/bs";
-import { MdOutlineDelete } from "react-icons/md";
+import { FaEdit, FaEye, FaTrash } from "react-icons/fa";
+
 
 const StoriesTable = ({ stories }) => {
   return (
@@ -42,19 +41,19 @@ const StoriesTable = ({ stories }) => {
                   to={`/stories/details/${story._id}`}
                   className="text-green-600 hover:text-green-500"
                 >
-                  <BsInfoCircle className="text-xl" />
+                  <FaEye  className="text-xl" />
                 </Link>
                 <Link
                   to={`/stories/edit/${story._id}`}
                   className="text-yellow-500 hover:text-yellow-400"
                 >
-                  <AiOutlineEdit className="text-xl" />
+                  <FaEdit className="text-xl" />
                 </Link>
                 <Link
                   to={`/stories/delete/${story._id}`}
                   className="text-red-600 hover:text-red-500"
                 >
-                  <MdOutlineDelete className="text-xl" />
+                  <FaTrash className="text-xl" />
                 </Link>
               </div>
             </td>

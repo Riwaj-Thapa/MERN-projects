@@ -1,10 +1,10 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import CreateStories from './pages/CreateStories';
-import ShowStory from './pages/ShowStory';
-import EditStory from './pages/EditStory';
-import Home from './pages/Home';
-import DeleteStory from './pages/DeleteStory';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import CreateStories from "./pages/CreateStories";
+import ShowStory from "./pages/ShowStory";
+import EditStory from "./pages/EditStory";
+import Home from "./pages/Home";
+import DeleteStory from "./pages/DeleteStory";
 
 const App = () => {
   return (
@@ -19,3 +19,5 @@ const App = () => {
 };
 
 export default App;
+
+

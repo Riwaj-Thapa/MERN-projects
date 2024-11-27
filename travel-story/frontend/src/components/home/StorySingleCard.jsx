@@ -1,10 +1,6 @@
 import { Link } from "react-router-dom";
-import { BiShow } from "react-icons/bi";
-import { AiOutlineEdit } from "react-icons/ai";
-import { BsInfoCircle } from "react-icons/bs";
-import { FaMapMarkerAlt } from "react-icons/fa"; // Example for location
+import { FaEdit, FaEye, FaInfoCircle, FaMapMarkerAlt, FaTrash } from "react-icons/fa"; // Example for location
 import { FaGlobe } from "react-icons/fa"; // Example for country
-import { MdOutlineDelete } from "react-icons/md";
 import { useState } from "react";
 import StoryModel from "./StoryModel";
 
@@ -41,18 +37,18 @@ const StorySingleCard = ({ story }) => {
       </p>
 
       <div className="flex justify-between items-center gap-x-2 mt-4 p-4">
-        <BiShow
+        <FaInfoCircle
           className="text-3xl text-blue-800 hover:text-black cursor-pointer"
           onClick={() => setShowModel(true)}
         />
         <Link to={`/stories/details/${story._id}`}>
-          <BsInfoCircle className="text-2xl text-green-800 hover:text-black" />
+          <FaEye className="text-2xl text-green-800 hover:text-black" />
         </Link>
         <Link to={`/stories/edit/${story._id}`}>
-          <AiOutlineEdit className="text-2xl text-yellow-600 hover:text-black" />
+          <FaEdit className="text-2xl text-yellow-600 hover:text-black" />
         </Link>
         <Link to={`/stories/delete/${story._id}`}>
-          <MdOutlineDelete className="text-2xl text-red-600 hover:text-black" />
+          <FaTrash className="text-2xl text-red-600 hover:text-black" />
         </Link>
       </div>
 
