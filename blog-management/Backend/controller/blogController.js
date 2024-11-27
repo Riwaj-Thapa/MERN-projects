@@ -41,33 +41,6 @@ const addNewBlog = async(req,res)=>{
 
 }
 
-// const addNewBlog = async (req, res) => {
-//     const { title, category, description } = req.body;
-//     try {
-//       if (!title || !category || !description || !req.file) {
-//         return res.status(400).json({ message: "All fields and file are required :( " });
-//       }
-      
-//       const addBlog = new blogModel({
-//         title,
-//         description,
-//         category,
-//         thumbnail: req.file.filename,
-//         user: req.user._id,
-//       });
-  
-//       const savedBlog = await addBlog.save();
-//       if (savedBlog) {
-//         return res.status(200).json({ message: "Blog added successfully :) " });
-//       } else {
-//         return res.status(400).json({ message: "Failed to add blog" });
-//       }
-//     } catch (error) {
-//       console.error("Error adding blog:", error);
-//       return res.status(500).json({ message: error.message });
-//     }
-//   };
-  
 
 const getSingleBlog = async(req,res)=>{
     const {id} = req.params

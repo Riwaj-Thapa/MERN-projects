@@ -14,9 +14,9 @@ const App = () => {
     <>
     <Header/>
       <Routes>
+        
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
-        {/* Protected route */}
         <Route path="/" element={<ProtectedRoute/>}>
           <Route path="/" element={<Home />}></Route>
           <Route path="/addBlog" element={<AddBlog />}></Route>
