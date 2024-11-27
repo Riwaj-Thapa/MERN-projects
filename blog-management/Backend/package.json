@@ -8,9 +8,9 @@
     "start": "nodemon server.js",
     "dev":"nodemon server.js"
   },
-  "author": "",
+  "author": "Riwaj Thapa",
   "license": "ISC",
-  "description": "",
+  "description": "This is the project about the blog-management system",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
