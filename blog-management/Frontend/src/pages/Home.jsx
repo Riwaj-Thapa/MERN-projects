@@ -9,14 +9,12 @@ const Home = () => {
   useEffect(() => {
     const fetchAllBlog = async () => {
       try {
-        const res = await axios.get(
-          `${api}/api/blogs/allBlogs`,
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }
-        );
+        const token = localStorage.getItem("token");
+        const res = await axios.get(`${api}/api/blogs/allBlogs`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         console.log("Fetched blogs data:", res.data); // Log data to check the structure
         setBlogs(res.data);
       } catch (error) {

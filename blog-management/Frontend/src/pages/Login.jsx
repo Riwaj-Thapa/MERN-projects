@@ -79,11 +79,6 @@ const Login = () => {
                     required
                   />
                 </div>
-                <div className="d-flex justify-content-between align-items-center mb-3">
-                  <a href="/forgot-password" className="small text-muted">
-                    Forgot password?
-                  </a>
-                </div>
                 <div className="text-center">
                   <button
                     type="submit"

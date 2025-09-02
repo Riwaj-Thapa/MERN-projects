@@ -10,14 +10,12 @@ const SingleBlog = () => {
 
   useEffect(() => {
     const fetchingSingleBlog = async () => {
-      const res = await axios.get(
-        `${api}/api/blogs/blog/${id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
+      const token = localStorage.getItem("token");
+      const res = await axios.get(`${api}/api/blogs/blog/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       setBlogs(res.data);
     };
     fetchingSingleBlog();
@@ -36,7 +34,7 @@ const SingleBlog = () => {
               src={`${api}/${blog.thumbnail}`}
               className="img-fluid rounded mx-auto d-block my-4"
               alt={blog.title}
-              style={{ width: "80%", height: "auto", objectFit: "cover" }}
+              style={{ height: "400px", width: "550px", objectFit: "cover" }}
             />
 
             <div className="card-body">

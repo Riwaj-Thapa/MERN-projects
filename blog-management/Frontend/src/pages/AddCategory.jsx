@@ -12,15 +12,12 @@ const AddCategory = () => {
   const handleCategory = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        `${api}/api/categories/addCategory`,
-        input,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
+      const token = localStorage.getItem("token");
+      const res = await axios.post(`${api}/api/categories/addCategory`, input, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       alert(res.data.message);
       navigate("/");
     } catch (error) {
@@ -28,14 +25,15 @@ const AddCategory = () => {
     }
   };
 
-  
-
   return (
     <div className="container my-5">
       <h2 className="text-center mb-4">Add a New Category</h2>
       <div className="row justify-content-center">
         <div className="col-md-6">
-          <form onSubmit={handleCategory} className="shadow p-4 bg-light rounded">
+          <form
+            onSubmit={handleCategory}
+            className="shadow p-4 bg-light rounded"
+          >
             <div className="mb-3">
               <label htmlFor="title" className="form-label">
                 Title
@@ -44,7 +42,9 @@ const AddCategory = () => {
                 type="text"
                 name="title"
                 value={input.title}
-                onChange={(e) => setInput({ ...input, [e.target.name]: e.target.value })}
+                onChange={(e) =>
+                  setInput({ ...input, [e.target.name]: e.target.value })
+                }
                 className="form-control"
                 id="title"
                 placeholder="Enter Category Title"
@@ -52,7 +52,10 @@ const AddCategory = () => {
               />
             </div>
             <div className="text-center">
-              <button type="submit" className="btn btn-primary btn-dark btn-dark w-100">
+              <button
+                type="submit"
+                className="btn btn-primary btn-dark btn-dark w-100"
+              >
                 Add Category
               </button>
             </div>
