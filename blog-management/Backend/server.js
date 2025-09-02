@@ -11,13 +11,12 @@ const app = express();
 const port = process.env.PORT;
 connectdb();
 
-// React app origin
+// Enable CORS for all origins
 app.use(
   cors({
-    origin:
-      "https://bmsfrontend-mz0hti65y-rambathapa562-gmailcoms-projects.vercel.app",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
+    origin: "*", // allow any origin
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
