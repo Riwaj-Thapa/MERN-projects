@@ -10,36 +10,40 @@ const getAllBlogs = async(req,res)=>{
 
 }
 
-const addNewBlog = async(req,res)=>{
-    const {title,category,description} = req.body;
+const addNewBlog = async (req, res) => {
+    const { title, category, description } = req.body;
     const photoPath = req.file ? req.file.path : null;
-    try{ 
-        if(title,category,description){
+
+    try {
+        if (!req.user) {
+            return res.status(401).json({ message: "User not authenticated" });
+        }
+
+        if (title && category && description) {
             const addBlog = new blogModel({
-                title:title,
-                description:description,
-                category:category,
-                thumbnail:photoPath,
+                title,
+                description,
+                category,
+                thumbnail: photoPath,
                 user: req.user._id,
             });
 
             const savedBlog = await addBlog.save();
-            if(savedBlog){
-                return res.status(200).json({message:"Blog added successfully :) "})
+            if (savedBlog) {
+                return res.status(200).json({ message: "Blog added successfully :) " });
+            } else {
+                return res.status(400).json({ message: "Failed to add blog :(" });
             }
-            return res.status(400).json({message:"All feilds are required :( "})
-            
-        }else{
-            return res.status(400).json({message:"All feilds are required :( "})
-
+        } else {
+            return res.status(400).json({ message: "All fields are required :( " });
         }
 
-    }catch(error){
-        return res.status(400).json({message:error.message})
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: error.message });
     }
+};
 
-
-}
 
 
 const getSingleBlog = async(req,res)=>{
