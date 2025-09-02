@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { api } from "../services/api";
 
 const AddCategory = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const AddCategory = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/categories/addCategory",
+        `${api}/api/categories/addCategory`,
         input,
         {
           headers: {

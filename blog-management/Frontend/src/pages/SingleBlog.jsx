@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { api } from "../services/api";
 
 const SingleBlog = () => {
   const { id } = useParams();
@@ -10,7 +11,7 @@ const SingleBlog = () => {
   useEffect(() => {
     const fetchingSingleBlog = async () => {
       const res = await axios.get(
-        `http://localhost:8000/api/blogs/blog/${id}`,
+        `${api}/api/blogs/blog/${id}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -32,7 +33,7 @@ const SingleBlog = () => {
             </div>
 
             <img
-              src={`http://localhost:8000/${blog.thumbnail}`}
+              src={`${api}/${blog.thumbnail}`}
               className="img-fluid rounded mx-auto d-block my-4"
               alt={blog.title}
               style={{ width: "80%", height: "auto", objectFit: "cover" }}

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { api } from "../services/api";
+
 
 const AddBlog = () => {
   const navigate = useNavigate();
@@ -16,7 +18,7 @@ const AddBlog = () => {
     const fetchAllCategories = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8000/api/categories/getCategories",
+          `${api}/api/categories/getCategories`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -51,7 +53,7 @@ const AddBlog = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/blogs/addBlog",
+        `${api}/api/blogs/addBlog`,
         formData,
         {
           headers: {
