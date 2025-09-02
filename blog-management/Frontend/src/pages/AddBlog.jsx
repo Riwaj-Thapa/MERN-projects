@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { api } from "../services/api";
-
+import { api } from "../services/api.js";
 
 const AddBlog = () => {
   const navigate = useNavigate();
@@ -17,14 +16,11 @@ const AddBlog = () => {
   useEffect(() => {
     const fetchAllCategories = async () => {
       try {
-        const res = await axios.get(
-          `${api}/api/categories/getCategories`,
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }
-        );
+        const res = await axios.get(`${api}/api/categories/getCategories`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
         setCategories(res.data);
       } catch (error) {
         console.error("Error fetching categories:", error);
@@ -32,8 +28,6 @@ const AddBlog = () => {
     };
     fetchAllCategories();
   }, []);
-
-
 
   const handleChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -52,16 +46,12 @@ const AddBlog = () => {
     formData.append("thumbnail", file);
 
     try {
-      const res = await axios.post(
-        `${api}/api/blogs/addBlog`,
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const res = await axios.post(`${api}/api/blogs/addBlog`, formData, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
       alert(res.data.message);
       navigate("/");
     } catch (error) {
