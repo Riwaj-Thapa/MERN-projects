@@ -12,7 +12,14 @@ const port = process.env.PORT;
 connectdb();
 
 // React app origin
-app.use(cors());
+app.use(
+  cors({
+    origin:
+      "https://bmsfrontend-mz0hti65y-rambathapa562-gmailcoms-projects.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 
