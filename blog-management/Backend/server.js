@@ -27,6 +27,11 @@ app.use("/api/blogs", blogRoutes);
 // Api routes for categories
 app.use("/api/categories", categoryRoutes);
 
+// for testing
+app.get("/", (req, res) => {
+  res.send("Server is running");
+});
+
 app.listen(port, () => {
   console.log(`App is running on http://localhost:${port}`);
 });
