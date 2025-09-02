@@ -31,7 +31,7 @@ const SingleBlog = () => {
             </div>
 
             <img
-              src={`${api}/${blog.thumbnail}`}
+              src={`${blog.thumbnail}`}
               className="img-fluid rounded mx-auto d-block my-4"
               alt={blog.title}
               style={{ height: "400px", width: "550px", objectFit: "cover" }}

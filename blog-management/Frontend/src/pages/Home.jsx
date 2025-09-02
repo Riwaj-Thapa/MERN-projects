@@ -40,7 +40,7 @@ const Home = () => {
                   <div className="col-lg-4 col-md-6 mb-4" key={item._id}>
                     <div className="card h-100 shadow-sm border-0 rounded-3">
                       <img
-                        src={`${api}/${item.thumbnail}`}
+                        src={item.thumbnail} // directly use the URL from the database
                         className="card-img-top img-fluid"
                         alt="blog thumbnail"
                         style={{ height: "200px", objectFit: "cover" }}
